@@ -39,6 +39,25 @@ app.post("/", (req, res) => {
 
 });
 
+// post deletion (post)
+app.post("/delete", (req, res) => {
+    // get the title of the post to delete
+    const title = req.body.title;
+
+    // find the index of the post in the array
+    const index = posts.findIndex(post => post.title === title);
+
+    // if the post is found, negative one is returned
+    if (index !== -1) {
+        // remove the post from the array
+        posts.splice(index, 1);
+    }
+
+    // redirect to homepage
+    res.redirect('/');
+
+});
+
 // start the server (listen)
 app.listen(port, () => {
     // log message to the console to confirm server start
