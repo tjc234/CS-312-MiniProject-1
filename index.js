@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 // initialize global variables
 const app = express();
 const port = 3000;
-const posts = [];
+let posts = [];
 let postToEdit = null;
 
 // parse incoming requests and serve static files
@@ -91,6 +91,6 @@ app.post("/edit", (req, res) => {
 // start the server (listen)
 app.listen(port, () => {
     // log message to the console to confirm server start
-    console.log('Server running on port ${port}.');
+    console.log(`Server running on port ${port}.`);
 
 });

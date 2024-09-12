@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Blog Website</title>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
 
     <body>
@@ -27,8 +27,7 @@
                 <div class = "form-group">
                     <label for = "content">Content:</label>
                     <%# if post to edit contains data, form is filled with data from content %>
-                    <textarea id = "content" name = "content" required><%= postToEdit ? postToEdit.content : '' %>
-                    </textarea>
+                    <textarea id = "content" name = "content" required><%= postToEdit ? postToEdit.content : '' %></textarea>
                 </div>
 
                 <%# button for submit or updating post %>
@@ -57,17 +56,19 @@
                         <p>By: <%= post.author %></p>
                         <p>Time: <%= post.timestamp %></p>
 
-                        <%# delete button %>
-                        <form action = "/delete" method = "POST">
-                            <input type = "hidden" name = "title" value = "<%= post.title %>">
-                            <button type = "submit" >Delete</button>
-                        </form>
+                        <div class = "button-group">
+                            <%# delete button %>
+                            <form action = "/delete" method = "POST">
+                                <input type = "hidden" name = "title" value = "<%= post.title %>">
+                                <button type = "submit" >Delete</button>
+                            </form>
 
-                        <%# edit button %>
-                        <form action = "/edit" method = "POST">
-                            <input type = "hidden" name = "title" value = "<%= post.title %>">
-                            <button type = "submit" >Edit</button>
-
+                            <%# edit button %>
+                            <form action = "/edit" method = "POST">
+                                <input type = "hidden" name = "title" value = "<%= post.title %>">
+                                <button type = "submit" >Edit</button>
+                            </form>
+                        </div>
                     </li>
                 <% }) %>
             </ul> 
