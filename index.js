@@ -58,7 +58,7 @@ app.post("/", (req, res) => {
     }
 
     // redirect to homepage
-    res.redirect('/');
+    res.redirect('/'); 
 
 });
 
